@@ -77,7 +77,7 @@ func (r *Respository) HandleLogin(c *fiber.Ctx) error {
 		Value:    refreshToken,
 		HTTPOnly: true,
 		Secure:   true,
-		SameSite: "Strict",
+		SameSite: "None",
 		Expires:  time.Now().Add(30 * 24 * time.Hour), // expires in 30 days
 	})
 
@@ -151,7 +151,7 @@ func (r *Respository) HandleLogout(c *fiber.Ctx) error {
 		Value:    "",
 		HTTPOnly: true,
 		Secure:   true,
-		SameSite: "Strict",
+		SameSite: "None",
 		Expires:  time.Now().Add(-1 * time.Hour),
 	})
 	return c.JSON(fiber.Map{"msg": "Log Out"})
@@ -586,8 +586,8 @@ func main() {
 
 	// connect to the frontend system
 	app.Use(cors.New(cors.Config{
-		AllowOrigins:     "http://localhost:5173",
-		AllowHeaders:     "Origin,Content-Type,Accept,Authorization",
+		AllowOrigins:     "http://localhost:5173, https://my-chatterbox.netlify.app",
+		AllowHeaders:     "Origin,Content-Type,Accept,Authorization,A",
 		AllowCredentials: true,
 	}))
 	r.SetupRoutes(app)
