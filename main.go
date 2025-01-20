@@ -588,6 +588,7 @@ func main() {
 	app.Use(cors.New(cors.Config{
 		AllowOrigins:     "http://localhost:5173, https://my-chatterbox.netlify.app",
 		AllowHeaders:     "Origin,Content-Type,Accept,Authorization,A",
+		AllowMethods:     "GET,POST,PUT,DELETE,PATCH,OPTIONS",
 		AllowCredentials: true,
 	}))
 	r.SetupRoutes(app)
