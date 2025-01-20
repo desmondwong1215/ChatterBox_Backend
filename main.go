@@ -28,6 +28,11 @@ type Respository struct {
 // key for the token
 var key string
 
+// keep backend awake
+func (r *Respository) WakeUp(c *fiber.Ctx) error {
+	return c.Status(200).JSON(fiber.Map{"msg": "Backend is awake!"})
+}
+
 // create new user
 func (r *Respository) CreateUser(c *fiber.Ctx, user *backend.User) error {
 	newUser := &backend.User{}
@@ -535,6 +540,7 @@ func (r *Respository) DeleteItem(c *fiber.Ctx) error {
 
 // set up the route of the app
 func (r *Respository) SetupRoutes(app *fiber.App) {
+	app.Get("/", r.WakeUp)
 	app.Post("/login", r.HandleLogin)
 	app.Post("/logout", r.HandleLogout)
 	app.Post("/refresh", r.RefreshTokenHandle)
