@@ -20,14 +20,6 @@ type Config struct {
 
 // connect to the database
 func NewConnection(config *Config) (*gorm.DB, error) {
-	// dsn := fmt.Sprintf(
-	// 	"host=%s port=%s password=%s user=%s dbname=%s sslmode=%s",
-	// 	config.Host, config.Port, config.Password,
-	// 	config.User, config.DBname, config.SSLMode,
-	// )
-	// if err := godotenv.Load(".env"); err != nil {
-	// 	log.Fatal("Cannot load env")
-	// }
 	dsn := os.Getenv("DATABASE_URL")
 	fmt.Println(dsn)
 	if dsn == "" {
