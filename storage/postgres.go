@@ -22,15 +22,11 @@ type Config struct {
 func NewConnection(config *Config) (*gorm.DB, error) {
 
 	// local database
-
 	// dsn := fmt.Sprintf(
 	// 	"host=%s port=%s password=%s user=%s dbname=%s sslmode=%s",
 	// 	config.Host, config.Port, config.Password,
 	// 	config.User, config.DBname, config.SSLMode,
 	// )
-	// if err := godotenv.Load(".env"); err != nil {
-	// 	log.Fatal("Cannot load env")
-	// }
 
 	// deployed database
 	dsn := os.Getenv("DATABASE_URL")
@@ -38,6 +34,7 @@ func NewConnection(config *Config) (*gorm.DB, error) {
 	if dsn == "" {
 		log.Fatal("DATABASE_URL environment variable is not set")
 	}
+
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		return db, err
