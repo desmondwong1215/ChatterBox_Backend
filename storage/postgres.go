@@ -1,7 +1,6 @@
 package storage
 
 import (
-	"fmt"
 	"log"
 	"os"
 
@@ -30,7 +29,6 @@ func NewConnection(config *Config) (*gorm.DB, error) {
 
 	// deployed database
 	dsn := os.Getenv("DATABASE_URL")
-	fmt.Println(dsn)
 	if dsn == "" {
 		log.Fatal("DATABASE_URL environment variable is not set")
 	}
