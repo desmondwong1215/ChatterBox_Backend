@@ -92,7 +92,7 @@ Below is the summary of key API endpoints:
 ### Deploy on Render
 1. Log in to [Render](https://render.com/).
 2. Create a new PostgreSQL.
-3. Copy the link of your PostgreSQL and go to your `.env` file:
+3. Copy the link of your PostgreSQL (choose internal database link) and go to your `.env` file:
     ```bash
     DATABASE_URL = paste-your-link-here
     ```
@@ -103,8 +103,7 @@ Below is the summary of key API endpoints:
 7. Set the following settings:
     - **Build Command**: `go build -o main .`
     - **Start Command**: `./main`
-8. Add environment variables in the Render dashboard.
-9. Deploy the service.
+9. Deploy the service. Your application will live at Render URL provided.
 
 ## Troubleshooting
 1. CORS Issues
