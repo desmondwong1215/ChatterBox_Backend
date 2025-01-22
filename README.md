@@ -91,13 +91,20 @@ Below is the summary of key API endpoints:
 ## Deployment
 ### Deploy on Render
 1. Log in to [Render](https://render.com/).
-2. Create a new Web Service.
-3. Connect your Github repository to Render.
-4. Set the following settings:
+2. Create a new PostgreSQL.
+3. Copy the link of your PostgreSQL and go to your `.env` file:
+    ```bash
+    DATABASE_URL = paste-your-link-here
+    ```
+4. Go to `/storage/postgres.go`, comment out line 24-28 and uncomment line 31-34.
+5. Create a new Web Service.
+6. Connect your Github repository to Render.
+7. Add your PostgreSQL link to the environment.
+7. Set the following settings:
     - **Build Command**: `go build -o main .`
     - **Start Command**: `./main`
-5. Add environment variables in the Render dashboard.
-6. Deploy the service.
+8. Add environment variables in the Render dashboard.
+9. Deploy the service.
 
 ## Troubleshooting
 1. CORS Issues
