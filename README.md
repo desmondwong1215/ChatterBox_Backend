@@ -54,21 +54,21 @@ Before running the project, ensure you have the following installed:
 
 ## Running locally
 ### Configure Environment Variables
-Create `.env` file and add following environment variable
-    ```bash
-    DB_HOST=your-database-host (should be `localhost`)
-    DB_PORT=your-database-port (should be `5432`)
-    DB_USER=your-database-username
-    DB_PASSWORD=your-database-password
-    DB_NAME=your-database-name
-    DB_SSLMODE=disable
-    PORT=9090
-    KEY=your-jwt-key
-    ```
+1. Create `.env` file and add following environment variable:
+        ```bash
+        DB_HOST=your-database-host (should be `localhost`)
+        DB_PORT=your-database-port (should be `5432`)
+        DB_USER=your-database-username
+        DB_PASSWORD=your-database-password
+        DB_NAME=your-database-name
+        DB_SSLMODE=disable
+        PORT=9090
+        KEY=your-jwt-key
+        ```
 Replace placeholders with your actual database configuration and JWT secret. Go to `/storage/postgres.go`, uncomment line 24-28 and comment out line 31-34.
 
 ### Start the Server
-Start the application:
+1. Start the application:
     ```bash
     go run main.go
     ```
